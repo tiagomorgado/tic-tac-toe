@@ -24,6 +24,9 @@ body {
   font-size: 84px;
   text-align: center;
   width: 100px;
+}
 
-
+.square:focus {
+  outline: none;
+  background-color: #222;
 }
