@@ -18,15 +18,21 @@ const Square = (props) => {
 }
 
 const Board = () => {
-  const initialSquares = [
-    null, null, null,
-    null, null, null,
-    null, null, null
-  ];
+  /* Initializie array with 9 null, representing each of the 9 squares on the board */
+  const initialSquares = Array(9).fill(null);
+
   const [squares, setSquares] = useState(initialSquares);
 
+  const [xIsNext, setXIsNext] = useState(true);
+
   const handleClickEvent = (i) => {
-    alert('square ' + i + ' clicked')
+    /* 1. Make a copy of the squares state array */
+    const newSquares = [...squares];
+    /* 2. Mutate the copy, setting the i-th element to X */
+    newSquares[i] = xIsNext ? 'X' : 'O';
+    /* 3. Call de setSquares function with the mutated copy */
+    setSquares(newSquares);
+    setXIsNext(!xIsNext)
   }
 
   const renderSquare = (i) => {
@@ -38,14 +44,13 @@ const Board = () => {
     )
   }
 
+  const status = `Next player is: ${xIsNext ? 'X' : 'O'}`;
 
   return(
-    <div style={{
-    backgroundColor: 'skyblue',
-    margin: 10,
-    padding: 20,
-  }}>
-    Board
+    <div>
+    <div className='status'>
+      {status}
+    </div>
     <div className='board-row'> 
       {renderSquare(0)}
       {renderSquare(1)}
@@ -69,7 +74,7 @@ const Board = () => {
 const Game = () => {
   return (
     <div className="game">
-      Game
+      Tic-Tac-Toe
       <Board />
     </div>
   );
