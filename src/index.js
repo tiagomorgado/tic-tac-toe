@@ -5,7 +5,6 @@ import './index.css'
 
 const Square = (props) => {
   
-
   return (
     <button 
         className='square'
@@ -79,8 +78,6 @@ const Game = () => {
     </div>
   );
 };
-
-
 
 ReactDOM.render(
   <Game />,
