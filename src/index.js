@@ -27,8 +27,18 @@ const Board = () => {
   const handleClickEvent = (i) => {
     /* 1. Make a copy of the squares state array */
     const newSquares = [...squares];
+
+    /* 1.1 Check if game has had a winner, or if the square is already filled */
+    const winnerDeclared = Boolean(calculateWinner(newSquares));
+    const squareFilled = Boolean(newSquares[i])
+
+    if(winnerDeclared || squareFilled) {
+      return;
+    }
+
     /* 2. Mutate the copy, setting the i-th element to X */
     newSquares[i] = xIsNext ? 'X' : 'O';
+
     /* 3. Call de setSquares function with the mutated copy */
     setSquares(newSquares);
     setXIsNext(!xIsNext)
