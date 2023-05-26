@@ -36,3 +36,19 @@ body {
   margin: 20px;
   font-size: 24px;
 }
+
+.restartBtn {
+  margin-top: 20px;
+  background-color: #444;
+  color: white;
+  border: 1px solid #999;
+  padding: 15px;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.restartBtn:hover {
+  background-color: white;
+  color: #444;
+
+}
